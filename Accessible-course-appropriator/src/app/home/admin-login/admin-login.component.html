@@ -1,0 +1,20 @@
+<div class="login-page">
+    <mat-card class="mat-elevation-z12">
+        <mat-card-title style="text-align:center;">Admin</mat-card-title>
+        <mat-card-content>
+            <form action="" [formGroup]="loginForm">
+                <mat-form-field>
+                    <input matInput placeholder="UserName" formControlName="userName">
+                    <mat-icon matSuffix>account_circle</mat-icon>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Password" type="password" formControlName="password">
+                    <mat-icon matSuffix>lock</mat-icon>
+                </mat-form-field>
+                <button mat-raised-button color="primary" class="login-button" [disabled]="!loginForm.valid" (click)="onClick()">
+                    Sign In
+                </button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

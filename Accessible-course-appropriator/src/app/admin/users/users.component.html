@@ -1,0 +1,35 @@
+<br>
+<div class="card-margin">
+  
+
+  <div class="mat-elevation-z8 mat-table">
+    <mat-toolbar>
+      <input (keyup)="applyFilter($event)" matInput placeholder="Search" color="primary">
+  </mat-toolbar>
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="userName">
+        <th mat-header-cell *matHeaderCellDef> UserName </th>
+        <td mat-cell *matCellDef="let user"> {{user.local.userName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let user"> {{user.local.email}} </td>
+      </ng-container>
+      <ng-container matColumnDef="createdAt">
+        <th mat-header-cell *matHeaderCellDef> Created At </th>
+        <td mat-cell *matCellDef="let user"> {{user.createdAt | date}} </td>
+      </ng-container>
+      <ng-container matColumnDef="updatedAt">
+        <th mat-header-cell *matHeaderCellDef> Updated At </th>
+        <td mat-cell *matCellDef="let user"> {{user.updatedAt | date}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <p class="info-text mat-body-1" *ngIf="pageLength <= 0">No Users found!</p>
+    <mat-paginator #paginator [length]="pageLength" [showFirstLastButtons]="true" [pageSize]="pageSize" [pageSizeOptions]="[1, 2, 5, 10, 25, 100]"
+    (page)="onChangePage($event)">
+    </mat-paginator>
+  </div>
+
+</div>

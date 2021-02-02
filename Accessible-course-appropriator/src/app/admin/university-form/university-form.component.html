@@ -1,0 +1,29 @@
+<input type="hidden">
+<br><mat-card class="card-margin">
+    <button mat-raised-button type="button" (click)="BackBtnHanlder()"> <mat-icon>keyboard_backspace</mat-icon> Back</button><br><br>
+    <form class="form-container"  [formGroup]="regForm">
+      <mat-form-field>
+        <input matInput placeholder="University Name" formControlName="universityName">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Email" type="email" formControlName="email">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Phone" formControlName="phone">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Country" formControlName="country">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Website" formControlName="Website">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Address" formControlName="address">
+      </mat-form-field>
+      <div>
+        <button mat-raised-button type="submit" color="primary" (click)="onSubmit()">Save</button> &nbsp;
+        <button mat-raised-button type="reset">Cancel</button>
+      </div>
+    </form>
+  </mat-card>
+  

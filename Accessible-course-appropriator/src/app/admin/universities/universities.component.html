@@ -1,0 +1,70 @@
+<br>
+<div class="card-margin"> 
+
+  <div class="mat-elevation-z8 mat-table">
+    <mat-toolbar>
+      <h3>Universities</h3>
+      <div class="menu-bar">
+        <button mat-raised-button color="primary" (click)="newBtnHanlder()">
+          New Company
+        </button>
+      </div>
+    </mat-toolbar>
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="universityName">
+        <th mat-header-cell *matHeaderCellDef> University Name </th>
+        <td mat-cell *matCellDef="let university"> {{university.universityName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="country">
+        <th mat-header-cell *matHeaderCellDef> Country </th>
+        <td mat-cell *matCellDef="let university"> {{university.country}} </td>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let university"> {{university.email}} </td>
+      </ng-container>
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Phone </th>
+        <td mat-cell *matCellDef="let university"> {{university.phone}} </td>
+      </ng-container>
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Address </th>
+        <td mat-cell *matCellDef="let university"> {{university.address}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Website">
+        <th mat-header-cell *matHeaderCellDef> Website </th>
+        <td mat-cell *matCellDef="let university"> {{university.Website}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="_id">
+        <th mat-header-cell  *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let university">
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="infoBtnHandler(university._id, university.universityName)">
+              <mat-icon>info</mat-icon>
+              <span>Details</span>
+            </button>
+            <button mat-menu-item (click)="editBtnHandler(university._id)">
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            <button mat-menu-item (click)="DeleteHandler(university._id)">
+              <mat-icon>delete</mat-icon>
+              <span>Delete</span>
+            </button>
+          </mat-menu>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <p class="info-text mat-body-1" *ngIf="pageLength <= 0">No Universities added yet!</p>
+    <mat-paginator #paginator [length]="pageLength" [showFirstLastButtons]="true" [pageSize]="pageSize" [pageSizeOptions]="[1, 2, 5, 10, 25, 100]"
+    (page)="onChangePage($event)">
+    </mat-paginator>
+  </div>
+
+</div>

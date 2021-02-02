@@ -1,0 +1,82 @@
+<div class="login-page">
+  <mat-card class="mat-elevation-z12">
+    <mat-card-title style="text-align:center;">User</mat-card-title>
+    <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
+      <mat-tab label="Sign In">
+          <mat-card-content>  
+            <form action="" [formGroup]="loginForm">
+              <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email">
+              </mat-form-field>
+              <mat-form-field>
+                  <mat-label>Enter your password</mat-label>
+                  <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                      [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+              </mat-form-field>
+              <button type="submit"
+                mat-raised-button
+                color="primary"
+                class="login-button" (click)="onClick()">
+                Sign In
+              </button>
+              <button type="button"
+                mat-raised-button
+                class="login-button">
+                Login with Google
+              </button>
+            </form>
+          </mat-card-content>
+      </mat-tab>
+      <mat-tab label="Sign Up">
+        <mat-card-content>
+          <form action="" [formGroup]="regForm">
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="User Name"
+                required
+                formControlName="userName">
+
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Email"
+                required
+                formControlName="email">
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Password"
+                type="password"
+                required
+                minlength="6"
+                formControlName="password">  
+            </mat-form-field>
+            <mat-form-field>
+                <input
+                matInput
+                placeholder="Confirm Password"
+                type="password"
+                required
+                minlength="6"
+                formControlName="confirmPassword">
+            </mat-form-field>
+            <button
+              mat-raised-button
+              color="primary"
+              class="login-button"
+              (click)="onSubmit()">
+              Sign Up
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div>
