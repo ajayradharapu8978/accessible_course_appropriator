@@ -26,7 +26,7 @@ const router = new Router();
 
 router.post('/adminlogin', comparePassword, signin);
 
-router.get('/showCourses', showCourses);
+router.get('/showCourses/:universityId', showCourses);
 
 router.post('/addAdmin', addAdmin);
 

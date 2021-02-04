@@ -21,8 +21,6 @@ import { MaterialModule } from '../shared/material.module';
 import { UniversityFormComponent } from './university-form/university-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UniversityDetailsComponent } from './components/university-details/university-details.component';
-import { CoursesComponent } from './components/courses/courses.component';
-import { DetailsComponent } from './components/details/details.component';
 
 
 @NgModule({
@@ -33,9 +31,7 @@ import { DetailsComponent } from './components/details/details.component';
     UniversitiesComponent,
     UsersComponent,
     UniversityFormComponent,
-    UniversityDetailsComponent,
-    CoursesComponent,
-    DetailsComponent
+    UniversityDetailsComponent
   ],
   imports: [
     CommonModule,

@@ -1,9 +1,61 @@
 <mat-tab-group mat-align-tabs="center" dynamicHeight="true"  [color]="'primary'" [backgroundColor]="'primary'">
     <mat-tab label="University Details">
-        <app-details></app-details>
+        <mat-card>
+            <div class="row">
+                <div class="col-lg-5">
+                    <img class="d-block w-100"
+                        src="../../../../assets/hu.jpg"><br>
+                        <div class="text-center changeColor">
+                            <h2>
+                                <strong>{{university.universityName}}</strong>
+                            </h2>
+                            <h4>
+                                <span class="green-text">
+                                    <strong>{{university.country}}</strong>
+                                </span>
+                            </h4>
+                        </div>
+                </div>
+                <div class="col-lg-1"></div>
+                <div class="col-lg-6">
+                    <h6>Email</h6>
+                    <p>{{university.email}}</p>
+                    <h6>Phone</h6>
+                    <p>{{university.phone}}</p>
+                    <h6>Website</h6>
+                    <p>{{university.Website}}</p>
+                    <h6>Address</h6>
+                    <p>{{university.address}}</p>
+                </div>
+                <div>
+                    
+                </div>
+            </div>
+        </mat-card>
     </mat-tab>
     <mat-tab label="Our Courses">
-        <app-courses></app-courses>
+        <div class="card1">
+            <div class="text-center card1"  *ngIf="courses <= 0">
+                NO DATA FOUND!
+            </div>
+            <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" *ngFor="let course of courses">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{course.courseName}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <h6>Fee :</h6>
+                    <p>{{course.fee}}</p>
+                    <h6>Duration :</h6>
+                    <p>{{course.duration}}</p>
+                    <mat-action-row>
+                        <button mat-button color="primary">Edit</button>
+                        <button mat-button color="warn" (click)="deleteCourseData(course.id)">Delete</button>
+                    </mat-action-row>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
     </mat-tab>
 </mat-tab-group>
     

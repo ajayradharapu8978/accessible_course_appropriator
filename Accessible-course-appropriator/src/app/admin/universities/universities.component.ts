@@ -34,13 +34,14 @@ export class UniversitiesComponent implements OnInit {
     this.router.navigate(['admin', 'universities', 'new']);
   }
 
+  // tslint:disable-next-line: typedef
   infoBtnHandler(id: string, name: string) {
     this.router.navigate(['admin', 'universities', 'info', id, name]);
   }
 
   // tslint:disable-next-line: typedef
   editBtnHandler(id: string) {
-    this.router.navigate(['admin', 'universities', id]);
+    this.router.navigate(['admin', 'universities', 'edit', id]);
   }
 
   // tslint:disable-next-line: typedef

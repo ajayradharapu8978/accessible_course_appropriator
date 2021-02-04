@@ -10,10 +10,10 @@ const regSchema = new mongoose.Schema({
         type: String
     },
     fee: {
-        type: Number
+        type: String
     },
     duration: {
-        type: Number
+        type: String
     }
 },
     {

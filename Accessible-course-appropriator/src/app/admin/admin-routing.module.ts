@@ -30,7 +30,7 @@ const routes: Routes = [
     component: UniversityDetailsComponent
   },
   {
-    path: 'universities/:id',
+    path: 'universities/edit/:id',
     canActivate: [AuthService],
     component: UniversityFormComponent
   },

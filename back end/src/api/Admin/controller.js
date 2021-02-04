@@ -73,7 +73,7 @@ export const showUniversitydata = (req, res) => {
 
 export const showCourses = (req, res) => {
   courses
-    .find({})
+    .find({university: req.params.universityId})
     .populate("university")
     .exec((err, result) => {
       if (err) {
