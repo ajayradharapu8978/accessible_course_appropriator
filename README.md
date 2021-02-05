@@ -1,1 +1,0 @@
-# meanstack-crud
