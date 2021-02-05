@@ -1,4 +1,6 @@
 export class User {
+    // tslint:disable-next-line: variable-name
+    _id = String;
     userName = String;
     email = String;
     password = String;

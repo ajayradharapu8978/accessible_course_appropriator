@@ -9,8 +9,7 @@ import {
     changePassword,
     signin,
     updateProfile
-
-} from './controller'
+} from './controller';
 
 const router = new Router();
 
@@ -20,10 +19,10 @@ router.post('/studentlogin', comparePassword, signin);
 
 router.post('/addstudentdata', addUser);
 
-router.get('/profile/:id', passport.authenticate('jwt',{session: false}), profile);
+router.get('/profile/:id', profile);
 
-router.get('/updateProfile/:id', passport.authenticate('jwt',{session: false}), updateProfile);
+router.get('/updateProfile/:id', updateProfile);
 
-router.put('/changePassword/:id', passport.authenticate('jwt',{session: false}), changePassword);
+router.put('/changePassword/:id', changePassword);
 
-export default router
+export default router;

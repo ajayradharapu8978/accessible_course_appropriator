@@ -1,3 +1,4 @@
+import { UserService } from './../services/user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  id: any;
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.id = window.localStorage.getItem('userId');
+    this.profileData();
+  }
+
+  // tslint:disable-next-line: typedef
+  profileData(){
+    this.userService.getProfileDetails(this.id).subscribe(data => {
+      console.log(data);
+    });
   }
 
 }

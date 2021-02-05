@@ -66,6 +66,7 @@ export class UserLoginComponent implements OnInit {
   // tslint:disable-next-line: typedef
   onClick(){
     this.authService.login(this.loginForm.value).subscribe((data) => {
+      window.localStorage.setItem('userId', data.id);
       this.jwtservice.setToken(data.token);
       this.router.navigate(['/user']);
     },

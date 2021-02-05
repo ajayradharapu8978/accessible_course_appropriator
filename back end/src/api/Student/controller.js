@@ -14,14 +14,14 @@ export const signin = (req, res) => {
       const token = jwt.sign({ _id: result._id }, "jwtSecret", {
         expiresIn: "3h",
       });
-      res.send({ success: resp, token });
+      res.send({ success: resp, token, id: result._id });
     }
   });
 };
 
 
 export const profile = (req, res) => {
-    registration.findOne({"_id":req.query.id},(err, result) => {
+    registration.findOne({"_id":req.params.id},(err, result) => {
         if (err){
             res.send(err);
         }
